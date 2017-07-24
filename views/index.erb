@@ -1,0 +1,89 @@
+<div id="todo_index">
+<% if user %>
+<h2>Continue where you left...</h2>
+
+<form action="/logout", method="POST">
+<input type="submit" name="logout" value="Log Out">
+</form>
+<br>
+
+<h4>Pending tasks till <%= Time.now %></h4>
+
+<form action="/add_task" method="POST">
+<textarea name="content" placeholder="Enter task"></textarea>
+<br>
+<input type="submit" value="Add Task" />
+</form>
+
+<ul>
+
+<% if tasks
+tasks.each do |task|  %>
+<br>
+<li style="list-style:none; font-family: 'Helvetica Neue' sans-serif; font-size: 18px;"> 
+
+	<% if task.done %>
+		<div class="strikethrough">
+	<% end %>
+	<% if task.important %>
+		<div class="bold_imp">
+	<% end %>
+	<% if task.urgent %>
+		<div class="red_urgent">
+	<% end %>
+
+	<%= task.content %>
+
+	<br>
+	</div></div></div>
+
+	<article class="align">
+	<form action="/toggle_task" method="POST">
+	<input type="hidden" name="task_id" value="<%= task.id %>" >
+	<input type="submit" value="DONE" style="font-weight:bold; margin-right: 10px;">
+	</form>
+	</article>
+
+	<article class="align">
+	<form action="/important_task" method="POST">
+	<input type="hidden" name="task_id" value="<%= task.id %>" >
+	<input type="submit" value="IMPORTANT" style="font-weight:bold; margin-right: 10px;">
+	</form>
+	</article>
+
+	<article class="align">
+	<form action="/urgent_task" method="POST">
+	<input type="hidden" name="task_id" value="<%= task.id %>" >
+	<input type="submit" value="URGENT" style="font-weight:bold; margin-right: 10px;">
+	</form>
+	</article>
+
+	<article class="align">
+	<form action="/delete_task" method="POST">
+	<input type="hidden" name="delete" value="<%= task.id %>" >
+	<input type="submit" value="DELETE"  style="font-weight:bold;" >
+	</form>
+	</article>
+	
+	</li>
+<% end %>
+<% end %>
+</ul>
+</div> 
+
+<style>
+	.strikethrough {
+		text-decoration: line-through;
+	}
+	.bold_imp {
+		font-weight: bold;
+	}
+	.red_urgent {
+		color: red;
+	}
+	article.align {
+		display: inline-block;
+	}
+</style>
+
+<% end %>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>My ToDo App</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0; 
+		}
+		body {background-color: 'white' ;
+	    }
+
+		#header{
+			background-color: #282827 ; 
+			margin: auto ; 
+			padding-top: 5% ;
+			padding-bottom: 5%;
+
+		}
+		#header h1{
+
+			 color: #E25D33; font-family: 'Helvetica Neue', sans-serif; font-size: 50px; font-weight: bold; 
+			 letter-spacing: -1px; line-height: 1; text-align: center;
+		}
+		#sign_in_div{
+			
+			  height: 60%;
+			  background-color: #DCD8CF ;
+			  padding: 10%; 
+			  text-align: center; 
+			  margin: auto; 
+
+		}
+		#sign_in_div input{
+			width: 50%;
+			padding: 5px 5px;
+			 border: 3px solid #555;
+		}
+		#sign_in_div #submit{
+
+			width: 30%;
+			padding: 8px 8px;
+			
+		}
+		#sign_in_div a{
+			font-family: 'Helvetica Neue', sans-serif; font-size: 20px; font-weight: bold; 
+			letter-spacing: -1px;  color: #E25D33; 
+		}
+		#sign_in_div #email, #password, #name{
+			font-family: 'Helvetica Neue', sans-serif; font-size: 20px; font-weight: bold; 
+			 letter-spacing: -1px;  color: #E25D33; margin-bottom:5px; 
+		}
+		#todo_index input{
+			font-family: 'Helvetica Neue', sans-serif; 
+			font-size: 15px; 
+			font-weight: bold; 
+			letter-spacing: -1px;  
+			color: #E25D33;
+			width: 10%;
+			padding: 5px 5px;
+			border: 3px solid #555;
+		}
+		#todo_index textarea{
+			height: 50px;
+			width: 50%;
+			outline: none;
+
+		}
+		
+</style>
+</head>
+
+<body>
+	<header id="header">
+		<h1>ToDo App.</h1>
+	</header>
+
+	<%= yield %>
+
+</body>
+
+</html>
